@@ -1,0 +1,37 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+
+      <a class="navbar-brand " href="/"><h3 class="float-md-left mb-0">AirPorter</h3></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/airports">All Airports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/airports/new">New Airport</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-nav ml-auto inline sticky-top">
+        <% if(!signeduser) { %> 
+          <button class="btn btn-sm btn-primary">
+            <a href="/login" class="nav-link"> <b>Login</b> </a>
+          </button>
+          <button class="btn btn-sm btn-warning">
+            <a href="/register" class="nav-link">Register</a>
+          </button>
+        <% } else { %> 
+            <div class="nav-link"> Welcome, <%= signeduser.username %>  </div>
+          <button class="btn btn-sm btn-warning">
+            <a href="/logout" class="nav-link">Logout</a>
+          </button>
+        <% } %> 
+      </div>
+    </div>
+  </nav>

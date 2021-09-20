@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="row">
+        <h1 class="text-center">Edit Airport</h1>
+        <div class="col-6 offset-3">
+            <form action="/airports/<%=airport._id%>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="airport[title]" value="<%=airport.title%>" required>
+                    <div class="valid-feedback">Success</div>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="airport[location]" value="<%=airport.location%>" required>
+                    <div class="valid-feedback">Success</div>
+
+                </div>
+                <!-- <div class="mb-3">
+                    <label class="form-label" for="image">Image URL</label>
+                    <input class="form-control" type="text" id="image" name="airport[image]" value="<%=airport.image%>" required>
+                    <div class="valid-feedback">Success</div>
+                </div> -->
+
+                <div class="input-group mb-3 custom-file">
+                
+                    <input type="file" class="form-control" id="image" name="image" multiple>
+                    <label class="input-group-text custom-file-label" for="image">Upload</label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="code">Airport Code</label>
+                    <input class="form-control" type="text" id="code" name="airport[code]" value="<%=airport.code%>" required>
+                    <div class="valid-feedback">Success</div>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="airport[description]" required><%=airport.description%></textarea>
+                    <div class="valid-feedback">Success</div>
+                </div>
+                <div class="mb-3">
+                    <% airport.images.forEach(function(img, i) { %>
+                        <img src="<%=img.url%>" class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                        </div>
+                        <label for="image-<%=i%> ">Delete Image?</label>
+                        <% })  %> 
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Update</button>
+
+                </div>
+                
+            </form>
+        
+        </div>
+    </div>
+
