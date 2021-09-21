@@ -43,7 +43,7 @@
 
             </ul>
 
-            <% if (signeduser && airport.creator.equals(signeduser._id) || signeduser.username == 'Admin')  { %> 
+            <% if (signeduser && airport.creator.equals(signeduser._id))  { %> 
             <div>
               <a href="/airports/<%=airport._id%>/edit" class="card-link btn btn-warning ml-2 mt-2 mb-2"> Edit </a>
               <a href="#" class="card-link">

@@ -33,6 +33,9 @@ module.exports.iscreator = async (req, res, next) => {
         req.flash('error', 'You dont have the permission.')
         return res.redirect(`/airports/${id}`)
     }
+   /*  else if(signeduser.username == 'Admin'){
+        res.redirect(`/airports/${id}/edit`)
+    } */
     next();
 }
 
